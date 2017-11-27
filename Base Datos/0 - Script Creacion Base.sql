@@ -63,6 +63,14 @@ CREATE TABLE Entrenador(
     FOREIGN KEY (numeroPasaporte) REFERENCES Persona (numeroPasaporte)
  );
  
+CREATE TABLE Asistentes(
+    numeroPasaporte INT NOT NULL,
+    fechaInicio date NOT NULL,
+    Tipo varchar(50) NOT NULL,
+    
+    PRIMARY KEY (numeroPasaporte),
+    FOREIGN KEY (numeroPasaporte) REFERENCES Persona (numeroPasaporte)
+ ); 
   CREATE TABLE Jugador(
     numeroPasaporte INT NOT NULL,
     camisa INT NOT NULL,
@@ -130,6 +138,15 @@ CREATE TABLE Medico(
     FOREIGN KEY (numeroPartido) REFERENCES Partido (numeroPartido),
     FOREIGN KEY (numeroPasaporte) REFERENCES Persona (numeroPasaporte)
  );
+
+CREATE TABLE CuerpoTecnico(
+    numeroPartido int not null,
+    numeroPasaporte int not null,
+    tipo varchar(50) not null,
+    PRIMARY KEY (numeroPartido,numeroPasaporte),
+    FOREIGN KEY (numeroPartido) REFERENCES Partido (numeroPartido),
+    FOREIGN KEY (numeroPasaporte) REFERENCES Persona (numeroPasaporte)
+ );
  
 CREATE TABLE Delegado(
     numeroPartido int not null,
@@ -162,3 +179,12 @@ CREATE TABLE Cambios(
     FOREIGN KEY (numeroPartido) REFERENCES Partido (numeroPartido),
     FOREIGN KEY (numeroPasaporte) REFERENCES Persona (numeroPasaporte)
  );
+
+CREATE TABLE Capitanes(
+    numeroPartido int not null,
+    numeroPasaporte int not null,
+    PRIMARY KEY (numeroPartido,numeroPasaporte),
+    FOREIGN KEY (numeroPartido) REFERENCES Partido (numeroPartido),
+    FOREIGN KEY (numeroPasaporte) REFERENCES Persona (numeroPasaporte)
+ );
+

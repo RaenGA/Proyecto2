@@ -109,6 +109,12 @@ begin
     select * from user_tables;
 end DicionarioD;
 
+create or replace procedure DicionarioD2(nombre in varchar2 ,p_cur out sys_refcursor) AS
+begin      
+    
+    desc(nombre);
+end DicionarioD2;
+
 /****  Todos los equipos por confederacion  ****/
 create or replace procedure Grupos( grupoConsulta in Equipo.grupo%Type, p_cur out sys_refcursor) AS
 begin
