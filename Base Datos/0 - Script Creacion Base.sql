@@ -1,6 +1,10 @@
 CREATE DATABASE BDPROY2;
 
 USE BDPROY2;  
+ 
+
+
+
 
 CREATE TABLE Pais(
     codigoPais varchar(3) NOT NULL,
