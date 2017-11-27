@@ -56,6 +56,30 @@ begin
   select p.nombre, E.tipo, E.minuto into nombre , p_tipo , p_minuto from Persona p, Estadisticas E  where E.numeropartido = p_numero_partido and E.numeroPasaporte = p.numeroPasaporte;
 end GolesTarjetas;
 
+ /*cambios partido*/
+create or replace procedure suplentesPartidos(  p_numero_partido in Partido.numeropartido%TYPE , respuesta out Persona.nombre%Type) AS
+begin
+  select p.nombre into respuesta from Persona p, Cambios s  where s.numeropartido = p_numero_partido and s.numeropasaporte = p.numeropasaporte;
+end suplentesPartidos;
+
+ /*Delegados*/
+create or replace procedure delegadosPartidos(  p_numero_partido in Partido.numeropartido%TYPE , respuesta out Persona.nombre%Type) AS
+begin
+  select p.nombre into respuesta from Persona p, delegado s  where s.numeropartido = p_numero_partido and s.numeropasaporte = p.numeropasaporte;
+end delegadosPartidos;
+
+ /*Medico*/
+create or replace procedure MedicosPartidos(  p_numero_partido in Partido.numeropartido%TYPE , respuesta out Persona.nombre%Type) AS
+begin
+  select p.nombre into respuesta from Persona p, Medico s  where s.numeropartido = p_numero_partido and s.numeropasaporte = p.numeropasaporte;
+end MedicosPartidos;
+
+ /*Medico*/
+create or replace procedure TecnicosPartidos(  p_numero_partido in Partido.numeropartido%TYPE , respuesta out Persona.nombre%Type) AS
+begin
+  select p.nombre into respuesta from Persona p, CuerpoTecnico s  where s.numeropartido = p_numero_partido and s.numeropasaporte = p.numeropasaporte;
+end TecnicosPartidos;
+
 /**Vista que regresa los numeros de partido**/
 CREATE OR REPLACE FORCE VIEW "Partidos" ("NUMEROPARTIDO") AS 
   SELECT numeropartido
