@@ -30,7 +30,9 @@ public class InsertarArbitros extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
+    public void setNumP(String numPartido){
+        lblTPartido.setText(numPartido);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,6 +76,7 @@ public class InsertarArbitros extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        lblTPartido = new javax.swing.JLabel();
 
         jLabel19.setText("Titular");
 
@@ -126,6 +129,8 @@ public class InsertarArbitros extends javax.swing.JFrame {
 
         jLabel1.setText("Arbitros");
 
+        lblTPartido.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -149,7 +154,8 @@ public class InsertarArbitros extends javax.swing.JFrame {
                                     .addComponent(txtcentral, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtg2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txt4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txt5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTPartido)))
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(180, 180, 180)
@@ -165,7 +171,9 @@ public class InsertarArbitros extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
                 .addGap(31, 31, 31)
-                .addComponent(lblPartido1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPartido1)
+                    .addComponent(lblTPartido))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtcentral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,7 +207,7 @@ public class InsertarArbitros extends javax.swing.JFrame {
     }//GEN-LAST:event_txt5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String numPartido = lblPartido1.getText();
+        String numPartido = lblTPartido.getText();
         String principal = txtcentral.getText();
         String guarda1 = txtg1.getText();
         String guarda2 = txtg2.getText();
@@ -294,6 +302,7 @@ public class InsertarArbitros extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel lblPartido;
     private javax.swing.JLabel lblPartido1;
+    private javax.swing.JLabel lblTPartido;
     private javax.swing.JTextField txt4;
     private javax.swing.JTextField txt5;
     private javax.swing.JTextField txtT10;

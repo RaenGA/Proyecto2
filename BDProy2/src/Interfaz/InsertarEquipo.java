@@ -5,10 +5,24 @@
  */
 package Interfaz;
 
+import Clases.Principales.Capitanes;
+import Clases.Principales.CuerpoTecnico;
+import Clases.Principales.Delegado;
+import Clases.Principales.Juegan;
+import Clases.Principales.JueganPK;
 import Clases.Principales.Partido;
 import Clases.Principales.Persona;
+import Clases.Principales.Suplentes;
+import Clases.Principales.Titulares;
+import ConexionDB.CapitanesDB;
+import ConexionDB.CuerpoTecnicoDB;
+import ConexionDB.DelegadoDB;
+import ConexionDB.JueganDB;
 import ConexionDB.PartidoDB;
 import ConexionDB.PersonaDB;
+import ConexionDB.SuplentesDB;
+import ConexionDB.TitularesDB;
+import java.math.BigInteger;
 
 /**
  *
@@ -19,12 +33,207 @@ public class InsertarEquipo extends javax.swing.JFrame {
     Partido part = new Partido();
     Persona Pers = new Persona();
     PersonaDB perdb = new PersonaDB();
+    Titulares tilt = new Titulares();
+    TitularesDB tiltdb = new TitularesDB();
+    Suplentes supl = new Suplentes();
+    SuplentesDB supldb = new SuplentesDB();
+    Delegado dele = new Delegado();
+    DelegadoDB deledb = new DelegadoDB();
+    CuerpoTecnico cutec = new CuerpoTecnico();
+    CuerpoTecnicoDB cutecdb = new CuerpoTecnicoDB();
+    Juegan juega = new Juegan();
+    JueganPK juegapk = new JueganPK();
+    JueganDB juegadb = new JueganDB();
+    Capitanes caps = new Capitanes();
+    CapitanesDB capdb = new CapitanesDB();
     /**
      * Creates new form InsertarEquipo
      */
     public InsertarEquipo() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
+    
+    public void setlblPartido(String num){
+        lblNumPartido.setText(num);
+    }
+    public void cargarTitulares(){
+        int numPartido = Integer.parseInt(lblNumPartido.getText());
+        int titular1 = Integer.parseInt(txtT1.getText());
+        int titular2 = Integer.parseInt(txtT2.getText());
+        int titular3 = Integer.parseInt(txtT3.getText());
+        int titular4 = Integer.parseInt(txtT4.getText());
+        int titular5 = Integer.parseInt(txtT5.getText());
+        int titular6 = Integer.parseInt(txtT6.getText());
+        int titular7 = Integer.parseInt(txtT7.getText());
+        int titular8 = Integer.parseInt(txtT8.getText());
+        int titular9 = Integer.parseInt(txtT9.getText());
+        int titular10 = Integer.parseInt(txtT10.getText());
+        int titular11 = Integer.parseInt(txtT11.getText());
+        tilt = new Titulares();
+        tilt.setNumPartido(numPartido);
+        tilt.setNumPasaporte(titular1);
+        tiltdb.InsertTitulares(tilt);
+        tilt = new Titulares();
+        tilt.setNumPartido(numPartido);
+        tilt.setNumPasaporte(titular2);
+        tiltdb.InsertTitulares(tilt);
+        tilt = new Titulares();
+        tilt.setNumPartido(numPartido);
+        tilt.setNumPasaporte(titular3);
+        tiltdb.InsertTitulares(tilt);
+        tilt = new Titulares();
+        tilt.setNumPartido(numPartido);
+        tilt.setNumPasaporte(titular4);
+        tiltdb.InsertTitulares(tilt);
+        tilt = new Titulares();
+        tilt.setNumPartido(numPartido);
+        tilt.setNumPasaporte(titular5);
+        tiltdb.InsertTitulares(tilt);
+        tilt = new Titulares();
+        tilt.setNumPartido(numPartido);
+        tilt.setNumPasaporte(titular6);
+        tiltdb.InsertTitulares(tilt);
+        tilt = new Titulares();
+        tilt.setNumPartido(numPartido);
+        tilt.setNumPasaporte(titular7);
+        tiltdb.InsertTitulares(tilt);
+        tilt = new Titulares();
+        tilt.setNumPartido(numPartido);
+        tilt.setNumPasaporte(titular8);
+        tiltdb.InsertTitulares(tilt);
+        tilt = new Titulares();
+        tilt.setNumPartido(numPartido);
+        tilt.setNumPasaporte(titular9);
+        tiltdb.InsertTitulares(tilt);
+        tilt = new Titulares();
+        tilt.setNumPartido(numPartido);
+        tilt.setNumPasaporte(titular10);
+        tiltdb.InsertTitulares(tilt);
+        tilt = new Titulares();
+        tilt.setNumPartido(numPartido);
+        tilt.setNumPasaporte(titular11);
+        tiltdb.InsertTitulares(tilt);
+        
+    }
+    
+    public void cargarSuplentes(){
+        int numPartido = Integer.parseInt(lblNumPartido.getText());
+        int suplente1 = Integer.parseInt(txtS1.getText());
+        int suplente2 = Integer.parseInt(txtS2.getText());
+        int suplente3 = Integer.parseInt(txtS3.getText());
+        int suplente4 = Integer.parseInt(txtS4.getText());
+        int suplente5 = Integer.parseInt(txtS5.getText());
+        int suplente6 = Integer.parseInt(txtS6.getText());
+        int suplente7 = Integer.parseInt(txtS7.getText());
+        int suplente8 = Integer.parseInt(txtS8.getText());
+        int suplente9 = Integer.parseInt(txtS9.getText());
+        int suplente10 = Integer.parseInt(txtS10.getText());
+        int suplente11 = Integer.parseInt(txtS11.getText());
+        int suplente12 = Integer.parseInt(txtS12.getText());
+        supl = new Suplentes();
+        supl.setNumPartido(numPartido);
+        supl.setNumPasaporte(suplente1);
+        supldb.InsertSuplentes(supl);
+        supl = new Suplentes();
+        supl.setNumPartido(numPartido);
+        supl.setNumPasaporte(suplente2);
+        supldb.InsertSuplentes(supl);
+        supl = new Suplentes();
+        supl.setNumPartido(numPartido);
+        supl.setNumPasaporte(suplente3);
+        supldb.InsertSuplentes(supl);
+        supl = new Suplentes();
+        supl.setNumPartido(numPartido);
+        supl.setNumPasaporte(suplente4);
+        supldb.InsertSuplentes(supl);
+        supl = new Suplentes();
+        supl.setNumPartido(numPartido);
+        supl.setNumPasaporte(suplente5);
+        supldb.InsertSuplentes(supl);
+        supl = new Suplentes();
+        supl.setNumPartido(numPartido);
+        supl.setNumPasaporte(suplente6);
+        supldb.InsertSuplentes(supl);
+        supl = new Suplentes();
+        supl.setNumPartido(numPartido);
+        supl.setNumPasaporte(suplente7);
+        supldb.InsertSuplentes(supl);
+        supl = new Suplentes();
+        supl.setNumPartido(numPartido);
+        supl.setNumPasaporte(suplente8);
+        supldb.InsertSuplentes(supl);
+        supl = new Suplentes();
+        supl.setNumPartido(numPartido);
+        supl.setNumPasaporte(suplente9);
+        supldb.InsertSuplentes(supl);
+        supl = new Suplentes();
+        supl.setNumPartido(numPartido);
+        supl.setNumPasaporte(suplente10);
+        supldb.InsertSuplentes(supl);
+        supl = new Suplentes();
+        supl.setNumPartido(numPartido);
+        supl.setNumPasaporte(suplente11);
+        supldb.InsertSuplentes(supl);
+        supl = new Suplentes();
+        supl.setNumPartido(numPartido);
+        supl.setNumPasaporte(suplente12);
+        supldb.InsertSuplentes(supl);
+        supl = new Suplentes();
+    }
+    
+    public void delegado(){
+        int numPartido = Integer.parseInt(lblNumPartido.getText());
+        int delegado = Integer.parseInt(txtDelegado.getText());
+        dele = new Delegado();
+        dele.setNumPartido(numPartido);
+        dele.setNumPasaporte(delegado);
+        deledb.InsertDelegado(dele);
+    }
+    
+    public void CT(){
+        int numPartido = Integer.parseInt(lblNumPartido.getText());
+        int entrenador = Integer.parseInt(txtEnt.getText());
+        int asist1 = Integer.parseInt(txtAsist1.getText());
+        int asist2 = Integer.parseInt(txtAsist2.getText());
+        int medico = Integer.parseInt(txtMed.getText());
+        cutec = new CuerpoTecnico();
+        cutec.setNumPartido(numPartido);
+        cutec.setNumPasaporte(entrenador);
+        cutec.setTipo("Entrenador");
+        cutecdb.InsertCuerpoTecnico(cutec);
+        cutec = new CuerpoTecnico();
+        cutec.setNumPartido(numPartido);
+        cutec.setNumPasaporte(asist1);
+        cutec.setTipo("Asistente1");
+        cutecdb.InsertCuerpoTecnico(cutec);
+        cutec = new CuerpoTecnico();
+        cutec.setNumPartido(numPartido);
+        cutec.setNumPasaporte(asist2);
+        cutec.setTipo("Asistente2");
+        cutecdb.InsertCuerpoTecnico(cutec);
+        cutec = new CuerpoTecnico();
+        cutec.setNumPartido(numPartido);
+        cutec.setNumPasaporte(medico);
+        cutec.setTipo("Medico");
+        cutecdb.InsertCuerpoTecnico(cutec);
+    }
+    public void EquipoCap(){
+        int numPartido = Integer.parseInt(lblNumPartido.getText());
+        int equipo = Integer.parseInt(txtEquipo.getText());
+        int cap = Integer.parseInt(txtCap.getText());
+        juega = new Juegan();
+        BigInteger np = BigInteger.valueOf(numPartido);
+        juegapk.setCodigoPais(np);
+        BigInteger equ = BigInteger.valueOf(equipo);
+        juegapk.setNumeropartido(equ);
+        juega.setJueganPK(juegapk);
+        juegadb.InsertJuega(juega);
+        caps.setNumPartido(numPartido);
+        caps.setNumPasaporte(cap);
+        capdb.InsertCapitanes(caps);
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -97,6 +306,8 @@ public class InsertarEquipo extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtCap = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        txtEquipo = new javax.swing.JTextField();
+        lblNumPartido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -174,7 +385,7 @@ public class InsertarEquipo extends javax.swing.JFrame {
 
         jLabel3.setText("InsertarEquipo");
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Capitan");
 
         jButton1.setText("Insertar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -183,13 +394,15 @@ public class InsertarEquipo extends javax.swing.JFrame {
             }
         });
 
+        lblNumPartido.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,39 +420,40 @@ public class InsertarEquipo extends javax.swing.JFrame {
                             .addComponent(txtT2, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtT1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtT6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtT10))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtT9))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtT8))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtT7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtT11)
-                                .addComponent(txtCap))))
-                    .addComponent(lblPartido))
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEquipo)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtT10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtT9))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtT8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtT7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtT11)
+                            .addComponent(txtCap)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblPartido)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNumPartido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel21)
                                     .addComponent(jLabel22)
@@ -253,55 +467,61 @@ public class InsertarEquipo extends javax.swing.JFrame {
                                     .addComponent(jLabel30)
                                     .addComponent(jLabel33)
                                     .addComponent(jLabel32))
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtS4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtS3, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtS2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtS1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtS6, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtS7, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtS8, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtS9, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtS10, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtS11, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtS12, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtS5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(35, 35, 35))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblEquipo)
+                                .addGap(46, 46, 46)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtS4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtS3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtS2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtS1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtS6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtS7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtS8, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtS9, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtS10, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtS11, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtS12, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtS5, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(txtEquipo))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(40, 40, 40)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(5, 5, 5)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtMed, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAsist2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAsist1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEnt, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDelegado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(76, 76, 76)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(84, Short.MAX_VALUE))
+                                .addGap(40, 40, 40)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtMed, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAsist2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAsist1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEnt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDelegado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel3)
-                .addGap(20, 20, 20)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblPartido)
-                    .addComponent(lblEquipo))
+                    .addComponent(lblEquipo)
+                    .addComponent(txtEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNumPartido))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -422,37 +642,12 @@ public class InsertarEquipo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtT5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String partido = lblPartido.getText();
-        String capitan = txtCap.getText();
-        String titular1 = txtT1.getText();
-        String titular2 = txtT2.getText();
-        String titular3 = txtT3.getText();
-        String titular4 = txtT4.getText();
-        String titular5 = txtT5.getText();
-        String titular6 = txtT6.getText();
-        String titular7 = txtT7.getText();
-        String titular8 = txtT8.getText();
-        String titular9 = txtT9.getText();
-        String titular10 = txtT10.getText();
-        String suplente6 = txtS6.getText();
-        String suplente7 = txtS7.getText();
-        String suplente8 = txtS8.getText();
-        String suplente9 = txtS9.getText();
-        String suplente10 = txtS10.getText();
-        String titular11 = txtT11.getText();
-        String suplente1 = txtS1.getText();
-        String suplente2 = txtS2.getText();
-        String suplente3 = txtS3.getText();
-        String suplente4 = txtS4.getText();
-        String suplente5 = txtS5.getText();
-        String suplente11 = txtS11.getText();
-        String suplente12 = txtS12.getText();
-        String entrenador = txtEnt.getText();
-        String asistente1 = txtAsist1.getText();
-        String asistente2 = txtAsist2.getText();
-        String medico = txtMed.getText();
-        String delegado = txtDelegado.getText();
-        
+        cargarTitulares();
+        cargarSuplentes();
+        delegado();
+        EquipoCap();
+        CT();
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -523,12 +718,14 @@ public class InsertarEquipo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblEquipo;
+    private javax.swing.JLabel lblNumPartido;
     private javax.swing.JLabel lblPartido;
     private javax.swing.JTextField txtAsist1;
     private javax.swing.JTextField txtAsist2;
     private javax.swing.JTextField txtCap;
     private javax.swing.JTextField txtDelegado;
     private javax.swing.JTextField txtEnt;
+    private javax.swing.JTextField txtEquipo;
     private javax.swing.JTextField txtMed;
     private javax.swing.JTextField txtS1;
     private javax.swing.JTextField txtS10;

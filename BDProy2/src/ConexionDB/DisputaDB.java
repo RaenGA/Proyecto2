@@ -89,7 +89,7 @@ public class DisputaDB {
             
             pst.setString(1, cambio.getnombSede());
             pst.setInt(2, cambio.getNumPartido());
-            pst.setInt(2, numPasaporte);
+            pst.setInt(3, numPasaporte);
             pst.executeQuery();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

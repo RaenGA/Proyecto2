@@ -91,7 +91,7 @@ public class TitularesDB {
             
             pst.setInt(1, titular.getNumPasaporte());
             pst.setInt(2, titular.getNumPartido());
-            pst.setInt(2, numPasaporte);
+            pst.setInt(3, numPasaporte);
             pst.executeQuery();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

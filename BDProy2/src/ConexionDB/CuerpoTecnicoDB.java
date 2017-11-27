@@ -5,7 +5,7 @@
  */
 package ConexionDB;
 
-import Clases.Principales.Suplentes;
+import Clases.Principales.CuerpoTecnico;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,19 +17,20 @@ import java.util.ArrayList;
  *
  * @author M Express
  */
-public class SuplentesDB {
+public class CuerpoTecnicoDB {
     
-    public ArrayList<Suplentes> getListaSuplentes() {
-        ArrayList<Suplentes> titular = new ArrayList<>();
+     public ArrayList<CuerpoTecnico> getListaCuerpoTecnico() {
+        ArrayList<CuerpoTecnico> titular = new ArrayList<>();
         PersonaDB pdb = new PersonaDB();
         try {
             Connection cnx = DatabaseConnect.getConnection();
             Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT NUMEROPARTIDO, NUMEROPASAPORTE FROM SUPLENTES");
+            ResultSet rs = st.executeQuery("SELECT NUMEROPARTIDO, NUMEROPASAPORTE, TIPO FROM CUERPOTECNICO");
             while (rs.next()) {
-                Suplentes conf = new Suplentes();
+                CuerpoTecnico conf = new CuerpoTecnico();
                 conf.setNumPartido(rs.getInt("NUMEROPARTIDO"));
                 conf.setNumPasaporte(rs.getInt("NUMEROPASAPORTE"));
+                conf.setTipo(rs.getString("TIPO"));
                 titular.add(conf);
 
             }
@@ -43,18 +44,19 @@ public class SuplentesDB {
     }
     
     //Obtener Arbitro
-    public Suplentes getSuplentes(String numPartido) {
-        Suplentes conf = null;
+    public CuerpoTecnico getCuerpoTecnico(String numPartido) {
+        CuerpoTecnico conf = null;
         PersonaDB pdb = new PersonaDB();
         try {
             Connection cnx = DatabaseConnect.getConnection();
             Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT NUMEROPARTIDO, NUMEROPASAPORTE"
-                    + "    FROM SUPLENTES WHERE NUMEROPARTIDO = '" + numPartido + "'");
+            ResultSet rs = st.executeQuery("SELECT NUMEROPARTIDO, NUMEROPASAPORTE, TIPO"
+                    + "    FROM CUERPOTECNICO WHERE NUMEROPARTIDO = '" + numPartido + "'");
             while (rs.next()) {
-                conf = new Suplentes();
+                conf = new CuerpoTecnico();
                 conf.setNumPasaporte(rs.getInt("NUMEROPASAPORTE"));
                 conf.setNumPartido(rs.getInt("NUMEROPARTIDO"));
+                conf.setTipo(rs.getString("TIPO"));
             }
 
         } catch (SQLException ex) {
@@ -66,14 +68,15 @@ public class SuplentesDB {
     
     //Insertar DATOS en la DB
 
-    public void InsertSuplentes(Suplentes titular) {
+    public void InsertCuerpoTecnico(CuerpoTecnico titular) {
 
         try {
             Connection cnx = DatabaseConnect.getConnection();
-            PreparedStatement pst = cnx.prepareStatement("INSERT INTO SUPLENTES(NUMEROPARTIDO, NUMEROPASAPORTE)"
-                    + " VALUES(?,?)");
+            PreparedStatement pst = cnx.prepareStatement("INSERT INTO CUERPOTECNICO(NUMEROPARTIDO, NUMEROPASAPORTE, TIPO)"
+                    + " VALUES(?,?,?)");
             pst.setInt(1, titular.getNumPartido());
             pst.setInt(2, titular.getNumPasaporte());
+            pst.setString(3, titular.getTipo());
             pst.executeQuery();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -82,16 +85,17 @@ public class SuplentesDB {
 
     }
 
-    public void UpdateSuplentes(Suplentes titular, int numPasaporte) {
+    public void UpdateCuerpoTecnico(CuerpoTecnico titular, int numPasaporte) {
 
         try {
             Connection cnx = DatabaseConnect.getConnection();
-            PreparedStatement pst = cnx.prepareStatement(" UPDATE  SUPLENTES SET "
-                    + " NUMEROPASAPORTE=? WHERE NUMEROPARTIDO=? AND NUMEROPASAPORTE=?");
+            PreparedStatement pst = cnx.prepareStatement(" UPDATE  CUERPOTECNICO SET "
+                    + " NUMEROPASAPORTE=?, TIPO=? WHERE NUMEROPARTIDO=? AND NUMEROPASAPORTE=?");
             
             pst.setInt(1, titular.getNumPasaporte());
-            pst.setInt(2, titular.getNumPartido());
-            pst.setInt(3, numPasaporte);
+            pst.setString(2, titular.getTipo());
+            pst.setInt(3, titular.getNumPartido());
+            pst.setInt(4, numPasaporte);
             pst.executeQuery();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -101,10 +105,10 @@ public class SuplentesDB {
     }
 //cod para Eliminar
 
-    public void DeleteSuplentes(String cod) {
+    public void DeleteCuerpoTecnico(String cod) {
         try {
             Connection cnx = DatabaseConnect.getConnection();
-            PreparedStatement pst = cnx.prepareStatement("DELETE FROM SUPLENTES "
+            PreparedStatement pst = cnx.prepareStatement("DELETE FROM CUERPOTECNICO "
                     + " WHERE NUMEROPARTIDO=?");
             pst.setString(1, cod);
             pst.executeQuery();

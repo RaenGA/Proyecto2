@@ -5,9 +5,23 @@
  */
 package Interfaz;
 
+import Clases.Principales.Capitanes;
+import Clases.Principales.CuerpoTecnico;
+import Clases.Principales.Delegado;
+import Clases.Principales.Juegan;
+import Clases.Principales.JueganPK;
+import Clases.Principales.Supervisa;
+import Clases.Principales.Suplentes;
+import ConexionDB.CapitanesDB;
+import ConexionDB.CuerpoTecnicoDB;
+import ConexionDB.DelegadoDB;
+import ConexionDB.EstadisticasDB;
 import ConexionDB.JueganDB;
 import ConexionDB.PartidoDB;
+import ConexionDB.PersonaDB;
 import ConexionDB.SupervisaDB;
+import ConexionDB.SuplentesDB;
+import ConexionDB.TitularesDB;
 
 /**
  *
@@ -17,6 +31,20 @@ public class EliminarPartido extends javax.swing.JFrame {
     PartidoDB pardb = new PartidoDB();
     SupervisaDB supdb = new SupervisaDB();
     JueganDB jdb = new JueganDB();
+    EstadisticasDB estdb = new EstadisticasDB();
+    PersonaDB perdb = new PersonaDB();
+    TitularesDB tiltdb = new TitularesDB();
+    Suplentes supl = new Suplentes();
+    SuplentesDB supldb = new SuplentesDB();
+    Delegado dele = new Delegado();
+    DelegadoDB deledb = new DelegadoDB();
+    CuerpoTecnico cutec = new CuerpoTecnico();
+    CuerpoTecnicoDB cutecdb = new CuerpoTecnicoDB();
+    Juegan juega = new Juegan();
+    JueganPK juegapk = new JueganPK();
+    JueganDB juegadb = new JueganDB();
+    Capitanes caps = new Capitanes();
+    CapitanesDB capdb = new CapitanesDB();
     /**
      * Creates new form EliminarPartido
      */
