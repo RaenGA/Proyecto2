@@ -71,6 +71,37 @@ public class EquipoDB {
         }
         return conf;
     }
+     
+     
+     public ArrayList<Equipo> getEquiposPorGrupos(String codGrupo) {
+        ConfederacionDB cf = new ConfederacionDB();
+        Confederacion confed = null;
+        ArrayList<Equipo> equip = new ArrayList<>();
+        try {
+            Connection cnx = DatabaseConnect.getConnection();
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery("SELECT CODIGOPAIS, NOMBRE, CODIGOCONFEDERACION, GRUPO FROM EQUIPO"
+                                       + " WHERE GRUPO= '" + codGrupo + "'");
+            while (rs.next()) {
+                Equipo conf = new Equipo();
+                confed = new Confederacion();
+                //cf.setCodigoconfederacion(rs.getString("CODIGOCONFEDERACION"));
+                confed = cf.getConfederacion(rs.getString("CODIGOCONFEDERACION"));
+                conf.setCodigopais(rs.getString("CODIGOPAIS"));
+                conf.setNombre(rs.getString("NOMBRE"));
+                conf.setCodigoconfederacion(confed);
+                conf.setGrupo(rs.getString("Grupo"));
+                equip.add(conf);
+
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Error en Listado");
+        }
+
+        return equip;
+     }
     
      
     //Insertar DATOS en la DB

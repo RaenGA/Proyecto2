@@ -26,7 +26,7 @@ public class BDProy2 {
         /*TitularesDB tdb = new TitularesDB();
         Titulares tilt = new Titulares();
         tilt.setNumPartido(1);
-        tilt.setNumPasaporte(34344311);
+        tilt.setNumPasaporte(34344315);
         tdb.InsertTitulares(tilt);*/
         
         
