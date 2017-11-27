@@ -63,16 +63,33 @@ CREATE OR REPLACE FORCE VIEW "Partidos" ("NUMEROPARTIDO") AS
 
 //*********************** Consultas C ****************************//
 
-create or replace procedure GrupClasi( grupo in Equipo.grupo%Type, p_cur out sys_refcursor) AS
+create or replace procedure PartidosJugados( codp in Equipo.codigopais%Type, p_cur out sys_refcursor) AS
 begin
-   open p_cur for
    
-   select E.nombre , count( J.codigo_pais) "PJ", as partidos jugados
+   select count( J.codigo_pais)   
+   from Juegan J 
+   where codp = J.codigo_pais; 
+ 
+end PartidosJugados;
+
+create or replace procedure GolesFavor( codp in Equipo.codigopais%Type, p_cur out sys_refcursor) AS
+begin
    
-   from Equipo E, Estadisticas ES, Juegan J 
-   where E.codigopais = J.codigo_pais and J.numeropartido = ES.numeropartido 
-   order by E.grupo;
-end GrupClasi;
+   select sum( E.tipo)   
+   from Juegan J, Estadisticas E
+   where codp = J.codigo_pais and E.tipo = 'gol' and J.numeropartido = E.numeropartido; 
+ 
+end GolesFavor;
+
+create or replace procedure GolesContra( codp in Equipo.codigopais%Type, p_cur out sys_refcursor) AS
+begin
+   
+   select sum( E.tipo)   
+   from Juegan J, Estadisticas E
+   where codp <> J.codigo_pais and E.tipo = 'gol' and J.numeropartido = E.numeropartido; 
+ 
+end GolesContra;
+
 
 /******************** Consulta D *****************************/
 
@@ -85,9 +102,17 @@ begin
    order by E.nombre;
 end goleadores;
 
-/*************** Dicionario de datos***************/
+/*************** Dicionario de datos ***************/
 create or replace procedure DicionarioD( p_cur out sys_refcursor) AS
 begin      
     open p_cur for
     select * from user_tables;
 end DicionarioD;
+
+/****  Todos los equipos por confederacion  ****/
+create or replace procedure Grupos( grupoConsulta in Equipo.grupo%Type, p_cur out sys_refcursor) AS
+begin
+   open p_cur for
+   select * from Equipo where grupo = grupoConsulta;
+end Grupos;
+
