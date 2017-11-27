@@ -27,7 +27,7 @@ public class DatabaseConnect {
            // String myDB = "jdbc:derby://localhost:1527/DBTRASPORTE";//URL DE JAVADB
             
             String usuario="bdproy2";
-            String password="bdproy2";
+            String password="cuadraci";
             Connection cnx = DriverManager.getConnection(myDB,usuario,password);
             
             return cnx;
