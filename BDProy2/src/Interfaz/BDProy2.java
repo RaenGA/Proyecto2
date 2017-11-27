@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package Interfaz;
+import ConexionDB.TitularesDB;
+import ConexionDB.PartidoDB;
+import Clases.Principales.Titulares;
+import Clases.Principales.Partido;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 /**
  *
@@ -17,6 +23,13 @@ public class BDProy2 {
     public static void main(String[] args) {
         Principal Inicio = new Principal();
         Inicio.setVisible(true);
+        /*TitularesDB tdb = new TitularesDB();
+        Titulares tilt = new Titulares();
+        tilt.setNumPartido(1);
+        tilt.setNumPasaporte(34344311);
+        tdb.InsertTitulares(tilt);*/
+        
+        
     }
     
 }
